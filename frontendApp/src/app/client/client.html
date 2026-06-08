@@ -1,0 +1,32 @@
+<ng-container>
+  <div class="container mt-2">
+    <div class="card">
+      <div class="card-header">
+        Liste des Clients
+      </div>
+      <div class="card-body">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let client of clients">
+                <td>{{ client.id }}</td>
+                <td>{{ client.nom }}</td>
+                <td>{{ client.email }}</td>
+                <td>
+                  <button (click)="showCredits(client.id)" class="btn btn-sm btn-info m-2">Credits</button>
+                  <button (click)="deleteClient(client.id)" class="btn btn-sm btn-danger">Delete</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+      </div>
+    </div>
+  </div>
+</ng-container>
