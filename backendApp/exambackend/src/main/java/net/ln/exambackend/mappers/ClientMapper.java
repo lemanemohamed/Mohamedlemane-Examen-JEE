@@ -10,6 +10,7 @@ import org.mapstruct.factory.Mappers;
 public interface ClientMapper {
     ClientMapper INSTANCE = Mappers.getMapper(ClientMapper.class);
 
+    @Mapping(target = "credits", source = "credits")
     ClientDTO toDTO(Client client);
 
     @Mapping(target = "credits", ignore = true)

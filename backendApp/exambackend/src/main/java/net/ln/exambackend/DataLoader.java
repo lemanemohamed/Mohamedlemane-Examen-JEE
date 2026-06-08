@@ -9,6 +9,7 @@ import net.ln.exambackend.repositories.RemboursementRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import java.util.List;
 
 @SpringBootApplication
 @Component
+
 public class DataLoader implements CommandLineRunner {
 
     private final ClientRepository clientRepository;

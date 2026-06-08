@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router'; // Import Router
 
 interface ClientData {
   id: number;
@@ -18,7 +19,7 @@ interface ClientData {
 export class Client implements OnInit {
   clients: ClientData[] = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private router: Router) {} // Inject Router
 
   ngOnInit(): void {
     this.loadClients();
@@ -35,23 +36,21 @@ export class Client implements OnInit {
     });
   }
 
-  deleteClient(clientId: number): void {
+  deleteClient(id: number): void {
     if (confirm('Are you sure you want to delete this client?')) {
-      this.http.delete(`http://localhost:8080/api/clients/${clientId}`).subscribe({
+      this.http.delete(`http://localhost:8080/api/clients/${id}`).subscribe({
         next: () => {
-          console.log(`Client with ID ${clientId} deleted successfully.`);
+          console.log(`Client with ID ${id} deleted successfully.`);
           this.loadClients(); // Refresh the client list
         },
         error: (error) => {
-          console.error(`Error deleting client with ID ${clientId}:`, error);
+          console.error(`Error deleting client with ID ${id}:`, error);
         }
       });
     }
   }
 
   showCredits(clientId: number): void {
-    console.log(`Showing credits for client with ID: ${clientId}`);
-    // TODO: Implement navigation to credits page or display credit details
-    // Example: this.router.navigate(['/credits', clientId]);
+    this.router.navigate(['/clients', clientId, 'credits']);
   }
 }

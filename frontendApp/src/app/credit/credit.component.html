@@ -1,0 +1,31 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      Crédits pour le client ID: {{ clientId }}
+    </div>
+    <div class="card-body">
+      <div *ngIf="credits.length === 0" class="alert alert-info">
+        Aucun crédit trouvé pour ce client.
+      </div>
+      <table *ngIf="credits.length > 0" class="table table-striped">
+        <thead>
+          <tr>
+            <th>ID Crédit</th>
+            <th>Montant</th>
+            <th>Date Crédit</th>
+            <!-- Add other credit headers as needed -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let credit of credits">
+            <td>{{ credit.id }}</td>
+            <td>{{ credit.montant | currency:'EUR':'symbol':'1.2-2' }}</td>
+            <td>{{ credit.dateCredit | date:'shortDate' }}</td>
+            <!-- Add other credit data as needed -->
+          </tr>
+        </tbody>
+      </table>
+      <button class="btn btn-secondary mt-3" (click)="goBack()">Retour à la liste des clients</button>
+    </div>
+  </div>
+</div>
