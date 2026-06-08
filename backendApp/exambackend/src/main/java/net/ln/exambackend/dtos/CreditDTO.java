@@ -7,7 +7,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Data
-public abstract class CreditDTO {
+public class CreditDTO {
     private Long id;
     private LocalDate dateDemande;
     private StatutCredit statut;

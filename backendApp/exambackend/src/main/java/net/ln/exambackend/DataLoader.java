@@ -1,16 +1,20 @@
 package net.ln.exambackend;
 
 import net.ln.exambackend.entities.*;
+import net.ln.exambackend.entities.StatutCredit;
+import net.ln.exambackend.entities.TypeRemboursement;
 import net.ln.exambackend.repositories.ClientRepository;
 import net.ln.exambackend.repositories.CreditRepository;
 import net.ln.exambackend.repositories.RemboursementRepository;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collections;
-cd
+
+@SpringBootApplication
 @Component
 public class DataLoader implements CommandLineRunner {
 
